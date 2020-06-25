@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar color="warning">
     <ion-title>
-      Blank
+      In A Browser
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true" mode="ios">
+  <ion-card *ngFor="let item of notices">
+    <ion-card-header>
+      <ion-card-title>{{item.title}} </ion-card-title>
+    </ion-card-header>
+    <img [src]="item.url" alt="">
+    <ion-card-content>
+      {{item.title}}-{{item.thumbnailUrl}}
+    </ion-card-content>
+    <ion-card-content class="ion-text-center">
+      <a (click)="openURL(item.thumbnailUrl,'_self')" style="text-decoration: none;">Leer mas...</a>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
